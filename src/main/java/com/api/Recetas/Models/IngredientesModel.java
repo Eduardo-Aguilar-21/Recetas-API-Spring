@@ -26,4 +26,49 @@ public class IngredientesModel {
     @ManyToOne
     @JoinColumn(name = "receta_id", referencedColumnName = "id_rec", nullable = false)
     private RecetaModel recetaModel;
+
+    public IngredientesModel() {
+    }
+
+    public Long getId_ing() {
+        return id_ing;
+    }
+
+    public void setId_ing(Long id_ing) {
+        this.id_ing = id_ing;
+    }
+
+    public String getNom_ing() {
+        return nom_ing;
+    }
+
+    public void setNom_ing(String nom_ing) {
+        this.nom_ing = nom_ing;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getUnidad_medida() {
+        return unidad_medida;
+    }
+
+    public void setUnidad_medida(String unidad_medida) {
+        this.unidad_medida = unidad_medida;
+    }
+
+    public RecetaModel getRecetaModel() {
+        return recetaModel;
+    }
+
+    public void setRecetaModel(RecetaModel recetaModel) {
+        this.recetaModel = recetaModel;
+    }
+    
+    
 }

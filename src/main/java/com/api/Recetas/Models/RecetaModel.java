@@ -31,4 +31,49 @@ public class RecetaModel {
     @JsonIgnore
     @OneToMany(mappedBy = "recetaModel")
     private List<PasosModel> pasos;
+
+    public RecetaModel() {
+    }
+
+    public Long getId_rec() {
+        return id_rec;
+    }
+
+    public void setId_rec(Long id_rec) {
+        this.id_rec = id_rec;
+    }
+
+    public String getNom_rec() {
+        return nom_rec;
+    }
+
+    public void setNom_rec(String nom_rec) {
+        this.nom_rec = nom_rec;
+    }
+
+    public CategoriaModel getCategoriaModel() {
+        return categoriaModel;
+    }
+
+    public void setCategoriaModel(CategoriaModel categoriaModel) {
+        this.categoriaModel = categoriaModel;
+    }
+
+    public List<IngredientesModel> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<IngredientesModel> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public List<PasosModel> getPasos() {
+        return pasos;
+    }
+
+    public void setPasos(List<PasosModel> pasos) {
+        this.pasos = pasos;
+    }
+    
+    
 }
