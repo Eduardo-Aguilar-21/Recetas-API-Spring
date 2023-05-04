@@ -1,7 +1,10 @@
 package com.api.Recetas.Services;
 
 import com.api.Recetas.Models.IngredientesModel;
+import com.api.Recetas.Models.RecetaModel;
 import com.api.Recetas.Repositories.IngredientesRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +43,17 @@ public class IngredientesService {
     public void EliminarIngredientes(Long id){
         ingredientesRepository.deleteById(id);
     }
-            
+
+    public List<IngredientesModel> ListarIRecetas(int id_recs){
+        List<Object[]> resultados = ingredientesRepository.FiltrarIng(id_recs);
+        List<IngredientesModel> ingredientexrec = new ArrayList<>();
+
+        for (Object[] resultado : resultados){
+            IngredientesModel ingredientem = (IngredientesModel) resultado[0];
+            RecetaModel recetam = (RecetaModel) resultado [1];
+            ingredientem.setRecetaModel(recetam);
+            ingredientexrec.add(ingredientem);
+        }
+        return ingredientexrec;
+    }
 }

@@ -1,6 +1,7 @@
 package com.api.Recetas.Controllers;
 
 import com.api.Recetas.Models.PasosModel;
+import com.api.Recetas.Models.RecetaModel;
 import com.api.Recetas.Services.PasosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,10 +31,15 @@ public class PasosController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/pas")
+    public List<PasosModel> ListarPxR(int prc){
+        return pasosService.ListarPReceta(prc);
+    }
+
     @PostMapping
     public ResponseEntity<PasosModel> CrearP(@RequestBody PasosModel pasosModel){
         PasosModel cpasos = pasosService.CrearPasos(pasosModel);
-        return new ResponseEntity<>(cpasos, HttpStatus.CREATED;
+        return new ResponseEntity<>(cpasos, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

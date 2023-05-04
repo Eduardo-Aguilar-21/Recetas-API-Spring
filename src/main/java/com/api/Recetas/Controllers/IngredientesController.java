@@ -1,6 +1,7 @@
 package com.api.Recetas.Controllers;
 
 import com.api.Recetas.Models.IngredientesModel;
+import com.api.Recetas.Models.RecetaModel;
 import com.api.Recetas.Services.IngredientesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,11 @@ public class IngredientesController {
             return new ResponseEntity<>(ingredientes.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/ing")
+    public List<IngredientesModel> ListarIxR(int rec){
+        return ingredientesService.ListarIRecetas(rec);
     }
 
     @PostMapping

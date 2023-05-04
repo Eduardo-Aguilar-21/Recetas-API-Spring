@@ -1,7 +1,10 @@
 package com.api.Recetas.Services;
 
+import com.api.Recetas.Models.CategoriaModel;
 import com.api.Recetas.Models.RecetaModel;
 import com.api.Recetas.Repositories.RecetaRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +41,17 @@ public class RecetaService {
     public void EliminarReceta(Long id){
         recetaRepository.deleteById(id);
     }
-}
+
+    public List<RecetaModel> ListarRCategoria(int id_cats){
+        List<Object[]> resultados = recetaRepository.FiltrarCat(id_cats);
+        List<RecetaModel> recetaxcat = new ArrayList<>();
+
+        for (Object[] resultado: resultados){
+            RecetaModel recetam = (RecetaModel) resultado[0];
+            CategoriaModel categoriam = (CategoriaModel) resultado[1];
+            recetam.setCategoriaModel(categoriam);
+            recetaxcat.add(recetam);
+        }
+        return recetaxcat;
+    }
+ }

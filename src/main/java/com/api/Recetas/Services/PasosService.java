@@ -1,8 +1,12 @@
 package com.api.Recetas.Services;
 
 import com.api.Recetas.Models.PasosModel;
+import com.api.Recetas.Models.RecetaModel;
 import com.api.Recetas.Repositories.PasosRepository;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +42,18 @@ public class PasosService {
     
     public void EliminarPasos(Long id){
         pasosRepository.deleteById(id);
+    }
+
+    public List<PasosModel> ListarPReceta(int precs){
+        List<Objects[]> resultados = pasosRepository.FiltrarP(precs);
+        List<PasosModel> pasosxrec = new ArrayList<>();
+
+        for(Object[] resultado : resultados){
+            PasosModel pasosm = (PasosModel) resultado[0];
+            RecetaModel recetam = (RecetaModel) resultado[1];
+            pasosm.setRecetaModel(recetam);
+            pasosxrec.add(pasosm);
+        }
+        return pasosxrec;
     }
 }
