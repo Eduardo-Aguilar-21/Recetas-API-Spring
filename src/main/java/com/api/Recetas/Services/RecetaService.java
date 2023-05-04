@@ -46,7 +46,7 @@ public class RecetaService {
         List<Object[]> resultados = recetaRepository.FiltrarCat(id_cats);
         List<RecetaModel> recetaxcat = new ArrayList<>();
 
-        for (Object[] resultado: resultados){
+        for (Object[] resultado : resultados){
             RecetaModel recetam = (RecetaModel) resultado[0];
             CategoriaModel categoriam = (CategoriaModel) resultado[1];
             recetam.setCategoriaModel(categoriam);

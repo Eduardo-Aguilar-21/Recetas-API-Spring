@@ -31,8 +31,8 @@ public class PasosController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/pas")
-    public List<PasosModel> ListarPxR(int prc){
+    @GetMapping("/pas/{prc}")
+    public List<PasosModel> ListarPxR(@PathVariable int prc){
         return pasosService.ListarPReceta(prc);
     }
 

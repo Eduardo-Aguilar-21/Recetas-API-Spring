@@ -30,7 +30,7 @@ public class RecetaController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/cat")
+    @GetMapping("/cat/{cat}")
     public List<RecetaModel> ListarRxC(@PathVariable int cat){
         return recetaService.ListarRCategoria(cat);
     }

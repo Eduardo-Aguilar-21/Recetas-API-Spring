@@ -44,11 +44,11 @@ public class PasosService {
         pasosRepository.deleteById(id);
     }
 
-    public List<PasosModel> ListarPReceta(int precs){
-        List<Objects[]> resultados = pasosRepository.FiltrarP(precs);
+    public List<PasosModel> ListarPReceta(int id_precs){
+        List<Object[]> resultados = pasosRepository.FiltrarP(id_precs);
         List<PasosModel> pasosxrec = new ArrayList<>();
 
-        for(Object[] resultado : resultados){
+        for (Object[] resultado : resultados){
             PasosModel pasosm = (PasosModel) resultado[0];
             RecetaModel recetam = (RecetaModel) resultado[1];
             pasosm.setRecetaModel(recetam);

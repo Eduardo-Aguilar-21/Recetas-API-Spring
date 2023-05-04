@@ -31,8 +31,8 @@ public class IngredientesController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/ing")
-    public List<IngredientesModel> ListarIxR(int rec){
+    @GetMapping("/ing/{rec}")
+    public List<IngredientesModel> ListarIxR(@PathVariable int rec){
         return ingredientesService.ListarIRecetas(rec);
     }
 
